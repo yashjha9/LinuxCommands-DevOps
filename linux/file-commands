@@ -1,0 +1,118 @@
+# Linux-Commands 
+# File-Commands
+# DevOps
+
+
+mkdir  ----> this command is used to create the directories
+mkdir dir1 dir2 dir3  ---> multiple directories can be created using this command
+mkdir dir1/dir2  ----> to create a sub-directory inside an existing directory
+mkdir -p dir1/dir2/dir3    ----> with -p can create a new directory with a sub-directories inside it. -p stands for Parent.
+
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+touch  ---> this command is used to create empty files and also used for timestamps.
+touch file1 file2 ----> multiple files can be created by passing the filenames as command arguments.
+touch dir1/file1 dir2/file2 ---> by giving the path to directories, files can be created inside the dir.
+touch -a <existing file name> ---> to change the access time of the file, -a stands for access. 
+touch -m <existing file name> ---> to change the modify time of the file, -m stands for modify.
+touch <existing file name>  --> to change access time, modify time, change time of the file.
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+stat <file name>   --> this command is used to see the timestamps of the file.
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+cat ---> this command is used to read the contents of the file. Fullform of "cat" is Concatenate.
+cat <file name>  ---> to read the contents of file
+
+With cat command, files can be created and contents can be added to the new file/existing file.
+
+> -> this is a single redirection symbol. This is used to enter the contents in the new file. If any file has content inside it, with the single redirection, the content inside the file will be overwritten.
+With single redirection, output of one command can be saved in file.
+>> -> double redirection. This is used to append the contents in the file.
+
+cat > file1  --> if file1 is not present, it will create a new file as file1. Hit enter and enter the contents. After entering the contents, press enter and then press ctrl + d to save it.
+cat >> file1  --> with this contents can be appended to an existing file.
+cat > file1  ---> file1 is already present, if contents are entered and file is saved, then the contents will be overwritten, means previous contents will be replaced with new contents.
+cat file1 file2 > file3 ---> it will copy the contents of file1 and file2 to the file3. If file3 is not present, then it will create the new file as file3 and copy the contents inside it.
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+echo ---> this command is used for 4 purposes, to print message on screen, to redirect the content to a file/new file, to append the content inside the existing file, to create a new file with contents inside it.
+
+echo "Hi" > file1   ---->  It will create a new file and will add a content to the file1 at the same time. The content inside the file1 will be Hi.
+echo "Hello" > file1   ------> this will overwrite the contents inside the existing file. Previous contents will be replaced with the new contents.
+echo "Howdy" >> file1  ----->  this will append the contents inside the existing file.
+
+Quotations are optional in the echo commands while adding contents to the file.
+
+echo Hi > file1
+echo Hello > file1
+echo Howdy >> file1
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+vi/vim and nano  -----> these are editors in Linux.
+Most widely used editor is Vi.
+Vi editor is used to edit the files.
+
+vi file1 ----> it will create a new file if file1 is not present. 
+It will open file in command mode.
+To enter the contents inside the file, enter into the Insert mode, by pressing 'i'
+Once entered into insert mode, type the contents.
+Now to save the file, go back to command mode by clicking 'esc' button. 
+Finally give :wq! to save and quit the file.
+
+:w -> to save the file
+:q -> to quit the file
+! -> this symbol is used for forceful.
+:q! -> if contents inside the file are wrongly written, now to quit the file without save it, give this command for a forceful quit. With this wrongly written contents wont be saved.
+:wq! -> forcefully save and quit
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+cp  ----> cp stands for copy. This command is used to copy the file from one location to other location. This command not only copies the file but also file contents can be copied from one file to other.
+While copying files from source to destination, files can be renamed with cp command.
+
+syntax:- cp <source> <destination>
+cp  ---> this command is used to copy files, but not directories.
+cp -r ---> this command is used to copy the file and directories recursively. -r stands for recursive.
+
+cp file1 file2  --->  this will copy the contents of file1 to file2. If file2 was having contents then those contents will be overwritten with the contents of file1.
+cp file1 dir1/file ---> this will copy the file1 inside the directory with the name file. Here the file1 will be renamed as file in the destination.
+cp file1 dir1/   -----> this time file will be copied from source to destination with the same name.
+
+cp -r dir1/ dir2/   --> this will copy the dir1 recursively inside the dir2. with -r, if dir1 has sub-directories and files then these will be copied inside the dir2.
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+mv   ----> mv stands for move. This command is also used to copy the files from source to destination. It is similar to copy command. 
+
+with copy command, the file when copied from source to destination, file will be present in source location as well as in destination location.
+
+with move command, the file when copied from source to destination, file will not be present in source location, file will be present in destination location. Basically file will be moved from one location to other.
+
+move command works like a cut and paste.
+copy command works like a copy and paste.
+
+mv file1 dir1/    ---->   this will move the file1 inside the dir1
+mv file1 dir1/file   ----> this will move the file1 inside the dir1 as file. Means file1 will be renamed as file in dir1.
+
+move command is also used to rename the files and directories.
+
+mv file1 file2   ---> this will rename the file1 to file2
+
+mv dir1 dir  ---> this will rename the dir1 to dir
+
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------
+
+rm <file name> ---> rm stands for remove, this command is used to remove the files.
+rmdir <dir name>---> this command is used to remove the empty directories.
+rm -r <dir name> --> this command is used to remove the directories along with the subdirectories and files inside it. -r stands for recursive. 
+
+sometime while using the rm -r command to delete the directory, question will be asked to remove it or not. To avoid such thing, use -f option. -f stands for forceful.
+
+rm -rf <dir name>  --> to delete the dir along with its sub-directories and files forcefully.
