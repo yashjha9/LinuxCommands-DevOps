@@ -1,0 +1,86 @@
+#user-commands
+#DevOps
+
+Both the above commands are used to create the users.
+
+useradd <username>
+adduser <username>
+
+
+/etc/passwd -> in this file, all the users information will be stored and can see the created user details.
+
+The format of /etc/passwd ----> username:password:UID:GID:comments:home_dir:shell
+
+useradd -m <provide user name> -> this will create the user with home directory
+useradd -C "<provide comments>" <username> -> you can provide comment to the user and create the user.
+useradd -s <provide shell path> <username> -> you can provide the shell path and create the user at the same time.
+-g <default group> -> with this option user can be added to default group.
+-G <group1, group2> -> user can be added to multiple groups.
+
+
+useradd -r <system user name>  ---> to create a system user. -r -> we are telling that we are creating a system user specifically than normal user. To be precise, -r option with useradd allows to create system user.
+System user will have UID number less than 1000.
+
+adduser <username> --system -> this will create system user too.
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Both the below commands are used to delete the users.
+
+userdel <username>
+deluser <username>
+
+
+
+userdel -r <username>  ---> to delete users along with their home directories.
+
+passwd <username> --> this command is used to create the password of specific users.
+
+passwd  --> this command is used to update the password for the current user.
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+In Linux there are 2 types of groups,
+1. Primary groups
+2. secondary group.
+
+Primary group is created during the user creation.
+Secondary groups are other groups which user creates.
+
+Each file in Linux has 2 owners,
+User owners and Group Owners.
+
+In Linux, user can be a part of one Primary group and multiple secondary Groups.
+
+groupadd <groupname>   ---> this command is used to create groups
+addgroup <groupname>   ---> this command is used to create groups
+
+groups <username>   ---> this command is used to find the user in which group the user is.
+
+/etc/group  ---> in this file, all the groups information will be stored and see the newly created groups details.
+
+The format of /etc/group -> group_name:password:gid:useraccount1,useraccount2...
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+delgroup <groupname>  ---> to delete the group
+groupdel <groupname>  ---> to delete the group
+
+
+gpasswd <groupname> -a <username> -> to add user to a new group or exisiting group, -a option is used for adding user to a group.
+
+to add users to existing group,
+usermod -aG <groupname> <username>
+-a ->append
+-G <group1,group2>-> group, with this user can be added to multiple groups
+-g <specify default group/primary group> 
+usermod -aG group1,group2,group3 user1 -> with this user1 will be added to 3 groups, which is Group1, group2, group3
+usermod -g group1 user1 -> with this primary group of user will be changed.
+
+
+groupmod <groupname> -n <new group name> -> to change group name, -n option is used for specifying new name for the group. 
+
+gpasswd -d <username> <groupname> -> to remove users from group, -d option is used for delete, -d or -delete can be used.
+
+groupmod <groupname> -g <provide new GID>  ---> to change the group ID of a specific group.
+
