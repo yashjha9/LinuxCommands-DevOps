@@ -23,6 +23,8 @@ System user will have UID number less than 1000.
 
 adduser <username> --system -> this will create system user too.
 
+id <username>   ---> to see the UID and GID of specific user.
+
 ------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 Both the below commands are used to delete the users.
@@ -75,7 +77,7 @@ usermod -aG <groupname> <username>
 -G <group1,group2>-> group, with this user can be added to multiple groups
 -g <specify default group/primary group> 
 usermod -aG group1,group2,group3 user1 -> with this user1 will be added to 3 groups, which is Group1, group2, group3
-usermod -g group1 user1 -> with this primary group of user will be changed.
+usermod -g group1 user1 -> with this primary group of user will be changed to group1.
 
 
 groupmod <groupname> -n <new group name> -> to change group name, -n option is used for specifying new name for the group. 
