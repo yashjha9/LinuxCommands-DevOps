@@ -1,0 +1,113 @@
+#Permissions commands 
+#DevOps
+
+In Linux, there are Users, Groups and Other. We know what is user and what is Group...
+
+Others:- the users which are not the owners of the file and also not the part of any groups.
+
+Access modes are different for DIR and FILES.
+for file,
+r -> whether user is allowed to read the content of file or not.
+w -> whether user is allowed to edit/modify the file or not.
+x -> whether user is allowed to execute the file or not.
+
+for dir,
+r -> whether user is allowed to find/list what are the subdirectories and files present in the dir.
+w -> whether user is allowed to create/delete new files in that directory.
+x -> whether a user is allowed to go inside a directory or not.
+
+
+Symbolic way to specify Users, Groups and Others:
+u -> users
+g -> groups
+o -> others
+
+Permissions can be changed in 2 ways, one is symbolic way and other is in Octal/numeric way.
+
+users,groups and others each have read, write and execute permissions.
+
+users (u) -> r,w,x
+groups (g) -> r,w,x
+others (o) -> r,w,x
+
+for read -> 4
+for write -> 2
+for execute -> 1
+
+The above is the Numeric way of specifying permissions for read, write and execute.
+-------------------------------------------------------------------------------------------------------------------------------------------
+
+chmod -> this command is used to change the permissions of files/dir.
+
+syntax:- chmod 777 <directory or file name>   ---> with this we are giving read, write and execute permissions for users, groups, others to a specific file or directory.
+permissions are given in a octal way.
+
+777  -> for user we are giving read, write and execute permissions  (r=4,w=2,x=1 -> 4+2+1 = 7)
+     -> for group we are giving read, write and execute permissions (r=4,w=2,x=1 -> 4+2+1 = 7)
+     -> for others we are giving read, write and execute permissions (r=4,w=2,x=1 -> 4+2+1 = 7)
+
+for example, lets say, we have given chmod 400 <dir>, so,
+400 -> provided only read permission for the user to a specific dir. (as for read, r=4)
+    -> no permissions for group to a specific dir.
+    -> no permissions for others to a specific dir.
+
+If there is 0, means no permissions are provided. 
+
+To give permissions in symbolic way,
+syntax:- chmod u+x <directory name or file name>   ---> with this we are giving execute permissions only to the user to a specific directory or file.
+
+to give permissions to groups and others along with users at the same time, then use the , between each. 
+syntax:- chnod u+x,g+w,o-w <file or directory name>   --. with this we are giving execute permissions to user, write permissions to group and removing write permissions to Others for a specific file or directory.
+
+Below are the operators used with symbolic way of giving permissions,
+= -> to set the permissions
++ -> to add the permissions
+- -> to remove the permissions
+
+Mostly Octal way of giving permissions are preferred over Symbolic way.
+
+By default this chmod command can run only by the owner of the file and by the root user. Root user can have access to everything.
+
+
+Now, to give permissions to the directory along with its subdirectories and files with in it, use option -R.
+-R -> Recursive
+
+syntax:- chmod -R 777 <directory name>   ---> with -R, read, write and execute permissions are set to the user, groups and others to a specific directory along with its sub-directories and files recursively.
+
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+chown  -> this command is used to change the ownership of files/directories.
+
+
+with this command, only the directory ownerships will be changed but the subdirectories/files inside the dir ownership will not change.
+
+syntax:- chown <user or owner name>:<group name> <directory/file name>    #user and owner both are same, can call it as user or can call it as Owner
+
+
+
+To change the ownerships of the dir along with its subdirectories and files inside it, use option -R. 
+-R -> stands for Recursive
+
+syntax:- chown -R <user name>:<group name> <dir/file name>
+
+
+if need to change only the user owner of file/dir,
+chown <user owner> <file name>
+
+to change only the group owner of file,
+chown :<group owner> <filename>
+
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+chgrp    -> this command is used to change the group owner of dir/file.
+
+syntax:- chgrp <groupname> <file/directory>
+
+example:- chgrp root yash   --> this will change the group owner of yash file to root group.
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+groups  --> this command is used to see the groups present in the system.
+
