@@ -1,7 +1,7 @@
 #user-commands
 #DevOps
 
-Both the above commands are used to create the users.
+Both the below commands are used to create the users.
 
 useradd <username>
 adduser <username>
