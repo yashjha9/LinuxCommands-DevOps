@@ -1,0 +1,136 @@
+#special-permissions-commands
+#devops
+#linux
+
+
+Special Permissions in Linux:
+SETUID
+SETGID
+Sticky bit
+
+
+SETUID ->
+======
+
+As a metaphor, lets say there are 2 files, one is executable file "file.exe" and other is regular file "file.txt".
+The file.exe has some sort of code in it, when this executable file runs, it will enter character 'ab' inside the file.txt.
+
+Now to understand this in a more better way,
+
+lets say there is a file.exe which is an executable file and owner of this executable file is 'user1' and group owner of the file is 'user1' which is a primary/default group of user1.
+this file.exe has r,w,x permissions for the user, group and others.
+whenever file.exe is executes, it is going to write character 'ab' inside the file.txt
+
+The permissions for the file.exe and file.txt is set as,
+file.exe -> u = rwx, g = rwx, o = rwx
+file.txt -> u = rwx, g = rw-, o = r--
+
+There are 3 users which are newly created, user1, user2, user3.
+
+user1 is the owner and group owner of the file.exe and file.txt. Other 2 users are not the part of user/owner and group owners, instead these 2 users comes under others.
+
+if user1 is logged in and tries to execute the file.exe, when executing .exe it will interact with file.txt, and this file.txt will see that user1 is trying to access me (file.txt).
+First it will look for the user permissions, which is set to r,w,x... means it has all user permissions. User1 is the user owner of the file.txt, so it will successfully get written 'ab' inside the file.txt
+
+Now if user2 is logged in and user2 will execute the file.exe, this .exe will interact with file.txt, file.txt will see that user2 is trying to access it. But user2 is not the user owner of file.txt and user2 doesn't belongs to user1 group. But user2 belongs to others, so read permissions will take place but write wont take place as file.txt has only read permissions but not write and execute permissions.
+So, this will give us error, permission denied.
+Basically with user2 trying to execute file, to enter the content inside file.txt will be failed.
+
+This problem can be addressed/overcome by SETUID.
+
+whenever an executable file is run, then this executable file should run as like the owner of the file.
+with SETUID, this file will run as the owner of the file, means user2 executes the file like the owner of the file, but actually the owner of file.exe is user1. so basically with setuid, user2 will be act as an owner who is actually a user1, when user2 tried to execute the file as an owner, then file.exe will interact with file.txt and this .txt will see that owner is trying to access it and it will be executed.
+
+SETUID can be set to files, it can also set to the dir, but dir can not perform actions.
+
+
+command to set SETUID for files in symbolic way,
+
+chmod u+s <file name> -> this command is used to set setUID for the file.    #SETUID -> set user ID, that's why we are giving this permission to user, u+s
+
+Note:- once you run above command, if you do ls -l, and if there is 'S' instead of 's', add execute permissions to user.
+
+S -> SETUID is given without execute permission.
+s -> SETUID is given along with execute permission.
+
+So if you see 'S', run below command to add execute permissions to user,
+chmod u+x <filename>
+
+
+command to set SETUID for files in Octal/numeric way,
+
+octal notation for SETUID is 4. So, in Octal way permissions are mentioned as,
+
+chmod 4--- <filename>   --> with this SETUID will be set to the file.    
+#octal way of representing permissions, <special permissions><user/owner permission><group owner permission><others permission>
+
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+SETGID ->
+======
+
+with SETGID, file will be executed with group owner.
+when SETGID is set to a file, then file will opened as a group owner of the file.
+
+for dir, SETGID functionality is different.
+Lets say there is dir, whose user owner is any user lets say user5, and group owner is user6.
+
+Now login with user1, go inside the dir and create a file. with this for the file, user owner will be user1 and group owner will be user1 and primary group of user1 is user1. As for dir, other permissions will be set as r-x.
+
+With SETGID, now if user1 tries to create a file, then the owner of file will be user1 but the group owner will be user1 instead of user6.
+
+SETGID works for both file and directory.
+
+touch file1   #create a file
+mkdir dir1    #create a directory
+
+to set SETGID,
+chmod g+s <file name> <dir name>
+
+This is how SETGID is set to file and dir.
+
+
+Octal notation for SETGID is 2,
+chmod 2--- <file name> <dir name>
+
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+STICKY BIT -> 
+==========
+
+This doesn't work for file.
+But for dir, it has the purpose.
+
+lets say there is a dir, with permissions, u = rwx, g = rwx, o = rwx
+now login with user1, and go inside the dir and create file1. same do with user2 and create file2.
+login with user3, delete file1 and file2.
+But only the owner of the file should delete/rename the particular file. In this case, sticky bit comes into play.
+
+
+Now sticky bit for the dir is set.
+so user1 will create file inside dir, but when user3 tries to login and delete the file, he wont be able to delete/rename the file which is created by user1. Only owner can do such things.
+
+
+To set sticky bit,
+chmod +t <file name>
+
+Note: when you do long listing, ls -l and if you see 'T' instead of 't', it means no execute permissions is set to the file/dir. So add the execute permissions after running sticky bit command.
+
+If 't' is shown, then sticky bit is set along with execute permissions to a file/dir.
+
+
+
+In octal, value of sticky bit is 1.
+
+chmod 1--- <filename>
+
+If you want to set the sticky bit while changing permissions to a file, then follow below example for reference,
+chmod 1775 file.txt
+
+when you do ls -l, and see T then add execute permissions, and then you can see 't'.
+
+
+
+
