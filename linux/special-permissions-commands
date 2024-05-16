@@ -74,7 +74,7 @@ with SETGID, file will be executed with group owner.
 when SETGID is set to a file, then file will opened as a group owner of the file.
 
 for dir, SETGID functionality is different.
-Lets say there is dir, whose user owner is any user lets say user5, and group owner is user6.
+Lets say there is dir, whose user owner is any user lets say user5, and group owner is user6.   #user5 is a member of group user6.
 
 Now login with user1, go inside the dir and create a file. with this for the file, user owner will be user1 and group owner will be user1 and primary group of user1 is user1. As for dir, other permissions will be set as r-x.
 
