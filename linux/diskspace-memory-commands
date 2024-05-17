@@ -1,0 +1,25 @@
+to look for partitions on system,
+df -h -> gives sizes in kb, mb which is human readable.
+df -> this will give sizes in 1k-blocks, which is not human readable
+
+
+df -h <dir name> -> this will show particular dir storage space/usage
+
+
+
+to look for memory usage,
+free -m
+
+
+ps -ef -> to see current running processes
+ps -aux 
+
+The difference between ps -ef and ps -aux is both commands are used to see current running process, the only difference is ps -aux provides the cpu, memory utilization of current processes, along with details which is shown by ps -ef command.
+
+
+top -> this command shows the live cpu and memory utilization of the running processes. The values keeps on changing.
+
+pidof <application name>   ---> with this pid of specifc app/process can be shown.
+
+kill -9 <PID>   ---> this is most widely used command to kill the PID of process, means it will kill the process.
+
