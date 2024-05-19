@@ -1,0 +1,30 @@
+"scp" is the command which helps in sharing files/directories from one server to other server.
+
+
+To copy files or directories from local server to client server, use the below syntax,
+
+syntax: scp <source path> <username>@<public ipaddress of client>:<destination path>
+
+example: scp file.txt ec2-user@13.255.23.131:/home/ec2-user/
+
+--------------------------------------------------------------------------------------------------------------------
+
+To copy files or directories from client server to local server, use the below syntax,
+
+scp <username>@<client public IP>:<file path> <provide path where the file needs to be copied in local server>
+
+
+-----------------------------------------------------------------------------------------------------------------------
+
+To copy directories, use -r option, -r means recursive.
+
+scp -r <file path> <username>@<client public IP>
+
+If no destination path is provided for the client server, then it will copy files in the user home directory by default.
+
+---------------------------------------------------------------------------------------------------------------------------
+
+To copy files or directories from linux to linux server, ec2 instances, use .pem file, use the below syntax,
+
+scp -i <pem file name> <source path of file> <username>@<client public IP>
+
