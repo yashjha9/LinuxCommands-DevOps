@@ -1,0 +1,54 @@
+Hard Links:-   Association between file name and file structure is called Hard link.
+
+Basically Hardlinks are used to create backups.
+
+Command to create Hard link is,
+
+ln <provide existing file name> <provide hardlink name for that file>
+
+example:- ln a.txt b.txt
+
+Here a.txt is existing file and b.txt is the newly created hard link file for a.txt file.
+
+If any contents are entered in one file, then automatically it will get reflected to the other file.
+Like contents entered in a.txt will be automatically reflected in b.txt
+
+If a.txt is deleted then no need to worry, as b.txt is created as a backup for a.txt using Hard Link command.
+
+
+------------------------------------------------------------------------------------------------------------------
+
+
+Symbolic Link or Soft link or symlink:- With this link, we can create shortcuts.
+
+command to create Soft Link is,
+
+ln -s <existing file name> <provide soft link name for the existing file> 
+
+example: ln -s a.txt b.txt
+
+Here a.txt is existing file and b.txt is the newly created soft link file for a.txt file.
+
+If a.txt is deleted, then soft link file b.txt is of no use.
+
+---------------------------------------------------------------------------------------------------------------------
+
+Lets say there is a file, process.txt and need to create the hard link and soft link for this file. 
+
+ln process.txt p.txt
+
+ln -s process.txt p.txt
+
+Now, if I move process.txt file from current location to other location, then,
+Hardlink wont be affected but softlink will be affected.
+
+--------------------------------------------------------------------------------------------------------------------
+
+Softlink can be created to directory, but Hardlinks can not be created to directory.
+
+ln -s /etc/ etc-sym_link -> will create symlink of etc dir in current directory.
+
+ln /etc/ etc_link -> this cant create the hardlink.
+
+
+Symlink can cross file system, while hardlink is locally to the file system.
