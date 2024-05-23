@@ -1,0 +1,77 @@
+tar  ---> this command is used to compress and archive files that can be moved from one disk of machine to other.
+
+-c -> this creates archive
+-x -> this extracts archive
+-t -> displays contents of archive
+-z -> to compress the archive
+-f -> allows to specify file name of archive
+
+This command works recursively.
+The order of options while using tar command should follow orderly.
+
+tar -czvf <give new file name with extension .tar.gz> <location of dir of which it is archived>
+Example: tar -czvf etc.tar.gz /etc
+If need to archive in tmp location,
+tar -czvf /tmp/etc.tar.gz /etc/
+
+
+To use bz or bzip instead of gz or gzip, use j option instaed of z
+tar -cjvf <give new file name with extension .tar.bz2> <location of dir of which it is archived, can give multiple paths of dir to archieve multiple dir.>
+
+To exclude files/directories from archive, 
+tar --exclude=<give file/dir names to exclude> -czvf <name of archive with extension .tar.gz or .tar.bz2> <name of dir> -> for one file/dir
+
+tar  --exclude=<give file/dir name1> --exclude=<give file/dir name2> --exclude=<give file/dir name3> …. -czvf <name of archive with extension .tar.gz or .tar.bz2> <name of dir where it should be unarchived> -> for more than one file
+
+
+To extract archive,
+tar -xzvf <name of archive> <location where needs to be extracted>
+
+
+To extract archive in other directory, use -C
+tar -xzvf <name of archive> -C < location where needs to be extracted>
+
+
+To archive dir/file with date,
+tar -czvf <name of archive, etc-$(date +%F).tar.gz> <name of dir which is to be archived>
+
+
+-----------------------------------------------------------------------------------------------------------
+
+gzip -> to compress file
+gunzip -> to extract gzip archive
+
+-----------------------------------------------------------------------------------------------------------
+
+bzip and bunzip2 does the same.
+
+------------------------------------------------------------------------------------------------------------
+
+wget  --->  this command line utility is used to download files from http/https/ftp servers.
+
+To download wget,
+sudo apt install wget -> ubuntu
+sudo dnf install wget -> centOS
+
+
+To install file from internet using wget command, copy the download link of the file and then,
+wget <paste the link>
+
+
+To install/download in another dir,
+wget -P <destination dir> <paste the URL>
+
+
+To resume the download as it was paused due to network disconnect, use -c option,
+wget -c -P <destination dir> <paste the URL to download>
+
+
+For huge files to download in background, use -b option,
+wget -b -c -P <desination dir> <paste URL>
+
+It will be downloaded in background, and output will be written in wget-log.
+To check status of download,
+tail -f wget-log
+
+
+
