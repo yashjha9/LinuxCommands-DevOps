@@ -1,0 +1,29 @@
+apt  -->    Advanced Packaging Tool
+
+APT is a package manager primarily used in Debian-based Linux distributions such as Ubuntu, Linux Mint, and Debian. It uses a command-line interface to search, install, update, and remove software packages. APT has a vast repository of software packages and supports dependency resolution, ensuring that all required packages are installed for a given application to work correctly.
+
+apt-get update  ---> this command won't install package updates to the distro but brings up a list of the latest package updates available in the apt repo.
+
+apt-get upgrade  ---->  this command downloads the latest versions packages of the installed packages.
+
+
+To know more about apt, like how to install, remove packages, use "man" command,
+man apt
+
+man --> Manual, this basically works like help command.
+
+
+------------------------------------------------------------------------------------------------------------------------
+
+yum  --> Yellowdog Updater Modified
+
+YUM is a package manager used primarily in Red Hat-based Linux distributions such as CentOS, Fedora, and Red Hat Enterprise Linux. YUM uses a command-line interface and works with RPM (Red Hat Package Manager) packages.
+
+
+yum update   ---> this command is used to update all the installed packages.
+
+
+yum upgrade  ---> "yum upgrade” performs the same action as “yum update”, but once finished it also removes all of the obsolete packages from the system.
+
+To know more about yum, like how to install, remove packages, use "man" command,
+man yum
