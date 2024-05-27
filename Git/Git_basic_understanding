@@ -1,0 +1,34 @@
+GIT is a most widely used version control system, commonly used for software development. GIT allows multiple developers to work on a project simultaneously while ensuring that their changes do not interfere with one another. It keeps track of all the changes made to the project and allows developers to revert to previous versions if necessary.
+
+
+
+GIT operates based on a decentralized model, meaning there is no centralized location for the “master” version of the project. Instead, each developer’s copy of the project is considered to be the “master” copy and changes can be pulled and pushed between different copies.
+
+
+12 KEY FEATURES OF GIT:-
+
+1. Distributed Version Control System:-  GIT is a distributed version control system, meaning that each developer has a complete copy of the entire project history on their local machine. This allows for decentralized collaboration and offline work.
+
+2. Branching and Merging:-  GIT makes branching easy. Developers can create branches to work on specific features or fixes, and later merge those branches back into the main codebase.
+
+3. Fast and Lightweight:- GIT is designed to be fast and efficient. It is a lightweight system that doesn’t require constant communication with a central server. Most operations are performed locally, making GIT quick and responsive.
+
+4. Data Integrity:- GIT uses a secure hashing algorithm (SHA-1) to ensure the integrity of the versioned data. Each commit is checked, and the commit history is secured against corruption.
+
+5. Staging (Index) Area:-  GIT has a staging area, also known as the index, where changes can be selectively included before committing them. This allows developers to control which changes are included in the next commit.
+
+6. History Tracking:-  GIT maintains a detailed history of changes to the codebase. Developers can view the history, see who made specific changes, and understand how the project has evolved.
+
+7. Parallel Development:- Multiple developers can work on different features simultaneously, and GIT can intelligently merge their changes. This parallel development is facilitated by GIT’s branching and merging capabilities.
+
+8. Open Source:- GIT is an open-source project, and its source code is freely available.
+
+9. Compatibility:-  GIT is platform-independent and works on various operating systems, including Linux, macOS, and Windows. This makes it easy for teams with diverse environments to collaborate.
+
+10. Support for Non-Linear Development:- GIT supports non-linear development workflows, allowing for complex project structures with features like topic branches, release branches, and more.
+
+11. Easy Collaboration:-  GIT facilitates collaboration among developers. Repositories can be hosted on platforms like GitHub, GitLab, or Bitbucket, enabling easy sharing, collaboration, and contribution from developers around the world.
+
+12. Integration with Other Tools:- GIT can be easily integrated with various development tools and services. Continuous Integration (CI) platforms, issue-tracking systems, and code review tools often have built-in support for GIT.
+
+
