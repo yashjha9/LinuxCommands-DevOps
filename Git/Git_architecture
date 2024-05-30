@@ -1,0 +1,34 @@
+Many VCS uses 2 tier architecture, i.,e Repository and working copy.
+
+But Git uses, 3 tier architecture, i.,e Working area or Working directory, Staging area or Index area, Local Repo.
+
+The three stages of git can store different(or the same) states of the same code in each stage.
+
+Working directory specifies the file explorer’s folder where your files are stored.
+
+Staging area is the area where files are stagged to get committed (to create snapshots).
+
+Once files are committed, then the files will be moved to Git repository or Local repository.
+
+------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Git init   ---> this is the command which initializes the git and creates the working area where developers can write the code.
+
+
+Git add <file name> or Git add .   ---> this command is used to stage the files in staging area. Once code is written, it will be stagged with the help of this command. 
+You can either stage the specific file or all the files present in working directory or working area.
+
+To add specific file to staging area, use command,
+Git add <file name>
+
+To add all files to staging area from working directory,
+Git add .
+
+
+Git commit -m "<provide commit message>"  ---> this command is used to commit the files or to create the snap shots of files in Local repo or Git repo.
+
+Git status  ---> this command is used to see the files status on the branch. Whether the file is in staging area or not, and whether the file is committed or not, we can know with the help of this command.
+
+
+By default, branch will be main/master in Git.
+
