@@ -1,0 +1,169 @@
+Git is a Source Code Management tool (SCM) or Distributed Version Control System (DVCS).
+Competitor of Git is SubVersion (SVN).
+
+Git works at Local repo.
+Github works at Remote repo, and it provides a service by providing remote repo, and provides storage to store the code.
+
+
+When git is installed on a machine, and user gives command “git init”.
+Once it is initialized, 3 areas will be created logically.
+The 3 areas are: Working area, Staging area, Local Repo.
+
+
+There is a term “commit”, which means saving/taking snapshot of files from staging area to local repo. The files which are committed, is assigned with a unique commit ID.
+
+--------------------------------------------------------------------------------------------------------------------
+
+CONFIGURE GIT:-
+=============
+
+Once git is installed, configure git with username and email, use below commands to configure,
+git config --global user.name “<provide name>”
+git config --global user.email “<provide email>”
+
+
+To see whether it is configured or not,
+git config --list
+
+----------------------------------------------------------------------------------------------------------------------
+
+CREATING LOCAL REPO:-
+===================
+
+
+Now go to github and create an account. Once account is created, create a repo.
+
+
+Create a directory for the codes to be stored, modified, committed on the local system.
+
+Once directory is created, go inside the directory, and give command,
+git init
+
+git init   ->   this command will initialize the local repo.
+With this, 3 areas will be created, they are:
+Working space/Working area
+Staging area/Indexing area
+Local repo.
+
+
+In Working area, code is written in a text file. Once it is written, we need to move to staging area, means need to stage the file which has code in it.
+
+git add <file name> or git add . -> this will add the file to staging area from working area.
+
+Once file is staged, check the status of git, using git status command.
+
+
+Now from staging area to local repo, if need to save the file in local repo, or need to take a snap of file into the local repo, 
+git commit -m “<provide a commit message>” -> this command is used to take snapshot or to save a file into the local repo from Staging Area.
+
+
+other command for git commit is,
+git commit -am “<provide message>” -> this command adds the file in staging area and at same time it will commit the file.
+
+
+------------------------------------------------------------------------------------------------------------------------
+
+ADDING REMOTE REPO TO LOCAL REPO:-
+================================
+
+
+Once code is committed to the local repo, need to push the code to the central repo, i.,e github repo.
+
+Inorder to push it to the GitHub repo, first need to connect remote repo to local repo. Use below command,
+git remote add origin https://git@github.com/<github_username>/<repo_name>.git
+
+
+To see if local repo is connected with remote repo, use below command,
+git remote -v 
+
+------------------------------------------------------------------------------------------------------------------------
+
+PUSHING CODE FROM LOCAL REPO TO GITHUB REPO:-
+===========================================
+
+To push code to remote repo, command used is,
+
+syntax: git push origin <remote_repo_branch_name>
+
+By default branch will be main/master branch
+
+git push origin main
+
+Once above command is given, it will ask username and password.
+
+Provide the github username.
+
+For password, need to generate the token. To generate the token follow below steps:-
+Go to profile > settings > developer settings > personal access tokens > classic tokens > generate new token > generate new token (classic) > give any note, lets say “my token” > click on Generate token.
+
+Once token is generated, copy the token and save it locally.
+
+Now provide the token as a password.
+
+So, after providing username and password as a token, code will be pushed to github repo.
+
+------------------------------------------------------------------------------------------------------------------------
+
+COMMANDS:-
+========
+
+git init
+
+git add .
+
+
+git status
+
+
+git commit -m "<provide commit message>"
+
+
+git branch    -> it will show the current branch we are on, it will lists local branches.
+
+git branch -a -> it will list all branches, local and remote.
+
+git branch -r -> will list only remote branch.
+
+git branch <branch name> -> this will create new branch, but user wont be switched to new branch. You can provide any name.
+But, mostly in orgs, branch names are provided as,
+feature  --> this branch is created if user is adding new features in the app code.
+release  --> this branch is created, once code is tested and will release app using release branch.
+
+
+git checkout <branch name> -> with this user will be switched to new branch.
+
+
+git checkout -b <branchname> -> this will create the new branch and user will be switched to new branch.
+
+
+git branch -d <branch name> -> this will delete the branch.
+
+
+git branch -D <branch name> -> forceful delete the branch, even person is still working on it.
+
+
+git push origin -d <branch name> -> to delete the remote repo branches from local.
+
+
+git log -> this will show information who has committed the file, along with commit ID.
+
+
+
+git show <commit ID> -> this will show who has written a code, basically it gives info about the code like what’s been added to the code and who has written it. Commit ID will be get from git log command.
+
+
+
+git log -1 -> this will show the latest commit. Means first recent commit. If -2 is given it will give output with recent 2 commits.
+
+
+git log --oneline -> this will show all commit in oneline
+
+
+To see log of a specific user,
+git log --author=<provide user name>
+
+
+git pull origin  <branchname> -> this will pull the code from the remote repo.
+
+
+
