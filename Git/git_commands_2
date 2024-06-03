@@ -1,0 +1,113 @@
+Merge:  user cant merge branches of different repo’s.
+Pulling mechanism is used to merge branches.
+
+git pull or
+git merge <branch name>
+
+If there are 2 branches, one is main branch and other is feature branch. Changes been made to the code in the feature branch, now to merge the changes to the code on main branch, first checkout to main branch and then use below command,
+
+git merge feature
+
+With this, feature branch will be merged to Main branch. Whatever the changes been made in feature branch will be merged in Main branch.
+
+
+Now, if changes are done in remote repo, but those changes are not present in local repo, then to merge the changes done in remote repo to the local repo, use command,
+
+git pull
+
+With this, changes will be merged with the local repo. Both local and remote repo will same code.
+
+
+------------------------------------------------------------------------------------------------------------------------
+
+
+Git Stash:
+
+Suppose a user is implementing a new feature for product. But the code is in progress and suddenly a customer escalation comes.
+Because of this, user need to keep aside the code on which he was working on for hours, and he can not commit the partial code and also can not throw away the changes which he made in the code.
+So he need to store his code for that he needs temporary storage, where he can store the partial changes or partial code written so that later he can work on it and commit it. 
+
+
+To stash an item, applies to only modified file but not for new file. 
+
+Means if a file in working area is pending and user needs to work on other things instantly, then user has to keep the work pending and needs to store the file, without adding the file to staging area and committing the file. Then git stash is used.
+
+To stash an item, command is,
+git stash 
+
+
+To see stashed Items list, command is
+git stash list
+
+
+To bring stashed file to working area, command is,
+git stash pop  or   git stash apply stash@{<provide the number of file>}
+
+
+when you lists the stash, number will starts from 0 to so on.
+0 -> new file
+
+so, the file will be from new file to old file.
+
+As number increases, then file is old ones. It goes from new to old.
+
+
+
+Once file is stashed, then stash file gets created in .git/refs/stash
+If stash file is brought back to working area, then file will be vanished from .git/refs .
+
+
+
+To clear the stash, means if user dont want to bring the file to working area, he can delete that file using below command,
+git stash clear
+
+
+-------------------------------------------------------------------------------------------------------------------------
+
+
+Git Reset:  This is a powerful command, that is used to undo local changes to the state of git repo.
+
+To reset staging area,
+git reset <file name> or git reset .
+
+To reset the changes from local repo to working area,
+git reset <commit ID>
+
+
+To reset the changes from both staging area and working area at a time, 
+git reset --hard
+
+
+
+
+------------------------------------------------------------------------------------------------------------------
+
+
+
+What is a Git conflict?
+
+To understand this, lets go thru an example,
+
+When same file/same name file having different content in different branches, if user merges then conflict occurs. Resolve the conflict and then add and lastly commit it.
+
+Conflict occurs when user merges branches.
+
+In master branch, lets say user create a file with name, “File1”.
+My name is Yash.
+
+Same user created a file in other branch, with same file name, “File1”
+My name is Yash
+I am a learner.
+When user tries to merges this branch, then no conflicts will come. As file1 in master has same one line in other branch file1 file.
+
+Now, user creates a file, file1, in master branch.
+Hi I am Yash.
+
+User creates the file with same name, file1, in other branch.
+I am learner.
+When user tries to merge this branches, then the conflict occurs.
+
+Main thing is, if file name is same then no problem, but data inside it is not same, then conflict occurs.
+
+To solve conflict, open the file with VI editor and edit the necessary things of the content from other branch. Then save it. Add to staging area and then commit it.
+
