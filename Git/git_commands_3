@@ -1,0 +1,64 @@
+Git Rebase:
+
+Works similar to Git merge.
+
+git rebase <branch name>
+
+git rebase -i <commit ID> or 
+for top 5 commit ID’s,
+git rebase -i HEAD~5 -> with this commit ID’s messages can be modified/edited.
+
+-i -> interactive mode.
+
+------------------------------------------------------------------------------------------------------------------
+
+
+Git Fork -> with this, can copy the others repo as our repo in Github.
+
+
+------------------------------------------------------------------------------------------------------------------
+
+
+Git clone <github repo link> ----> with this we will copy the remote repo into the local repo, with branch main.
+
+
+to clone the code of other branch/specific branch from central repo, to local repo,
+
+Git clone <github repo link> -b <branch name>
+
+
+--------------------------------------------------------------------------------------------------------------------
+
+
+There are options such as squash, fix up…
+
+squash <commit id> -----> with this current commit will be merged with previous commit.
+
+Give ‘squash’ before the commit ID, then it will be merged with previous commit, but with same commit message.
+
+
+fixup <commit ID> ----> works like a squash, but keeps previous commits log message, unless -C is used.
+Means the commit ID which has issue, will not be shown, it will be disappear and previous commit ID will be shown. In case of squash, commit message will be shown but using fix up it wont be shown.
+
+
+------------------------------------------------------------------------------------------------------------------------
+
+To change branch name from master to main, 
+
+git branch -m main
+
+
+------------------------------------------------------------------------------------------------------------------------
+
+1. Difference between Git pull and Git fetch?
+Git Pull -> will download the remote repo to workspace.
+Git fetch -> fetch/get the info of versions/commit ID’s from remote to local repo.
+
+
+2. Git Revert --- This command will revert the top commit with Previous commit.
+
+Syntax:- Git Revert HEAD (Here HEAD is referred as top commit ID in git)
+
+3. Difference between Private repo and Public repo?
+Only a permitted users will have read or write permissions to a repo, it is called Private repo.
+Public repo has access to everyone, all can read from the repo.
